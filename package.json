@@ -1,0 +1,12 @@
+{
+  "name": "plant-disease-classifier",
+  "version": "1.0.0",
+  "description": "About: In this project we aim to build a web app that can assist farmers in detecting potato plant diseases. The application will be able to classify the disease in an infected potato plant using it's leaf and Convolutional Neural Networks.<br>",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build":"npx tailwindcss -i ./application/static/css/style.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

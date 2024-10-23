@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %}
+
+<!-- content -->
+{% block content %}
+<div
+  class="container-fluid rounded-xl py-4 bg-cover bg-center"
+  style="background-image: url('./bg.png')">
+  <h1 class="fs-2 text-center py-4 text-white font-extrabold">
+    Potato Plant Disease Classifier
+  </h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rounded-xl mb-4">
+        <div class="p-3 rounded-xl">
+          <form action="/" method="post" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+              <input
+                type="file"
+                name="file"
+                class="form-control"
+                aria-describedby="fileUpload"
+                required />
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Predict</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-center">
+          {% if input_img %}
+          <img
+            class="img-fluid rounded-xl"
+            src="{{ url_for('static', filename='uploads/'+input_img) }}"
+            alt="Input Image" />
+          {% endif %}
+        </div>
+      </div>
+      <div class="rounded-xl">
+        <div class="text-center rounded-xl">
+          {% if pred %}
+          <h4 class="text-white">Result: {{pred}}</h4>
+          {% else %}
+          <h2 class="text-white font-extrabold fs-1">Prediction</h2>
+          {% endif %}
+        </div>
+        <div class="container p-2 rounded-xl" id="pred">
+          {% if pred_img %}
+          <img
+            class="img-fluid rounded-xl"
+            src="{{ url_for('static', filename='uploads/'+pred_img) }}"
+            alt="Prediction Image" />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
